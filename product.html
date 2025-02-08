@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supermarket Home</title>
+    <title>Supermarket Products</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,16 +29,15 @@
             color: white;
             text-decoration: none;
         }
-        .banner {
+        .products-section {
             text-align: center;
             padding: 50px;
-            background-color: #2ecc71;
-            color: white;
         }
         .product-list {
             display: flex;
-            justify-content: space-around;
-            padding: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
         .product {
             background-color: white;
@@ -46,6 +45,20 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            width: 200px;
+        }
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .add-to-cart {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
         }
         footer {
             text-align: center;
@@ -64,45 +77,37 @@
                 <li><a href="Home.html">Home</a></li>
                 <li><a href="product.html">Products</a></li>
                 <li><a href="about.html">About</a></li>
+                <li><a href="login.html">login</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="addcart.html">Cart</a></li>
-                <li><a href="login.html" class="login-btn">Login</a></li>
             </ul>
         </nav>
     </header>
     
-    <section id="home" class="banner">
-        <h2>Welcome to Our Supermarket</h2>
-        <p>Get the best deals on fresh groceries!</p>
-        <a href="#products" class="shop-now">Shop Now</a>
-    </section>
-    
-    <section id="products" class="products-section">
+    <section class="products-section">
         <h2>Our Products</h2>
         <div class="product-list">
             <div class="product">
+                <img src="fruit.jpg" alt="Fruits & Vegetables">
                 <p>Fruits & Vegetables</p>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
             <div class="product">
+                <img src="dairy product.jpg" alt="Dairy Products">
                 <p>Dairy Products</p>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
             <div class="product">
+                <img src="bakery product.jpg" alt="Bakery Items">
                 <p>Bakery Items</p>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
             <div class="product">
+                <img src="bavarage.webp" alt="Beverages">
                 <p>Beverages</p>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
         </div>
-    </section>
-    
-    <section id="about" class="about-section">
-        <h2>About Us</h2>
-        <p>We provide high-quality groceries at the best prices. Shop with us for fresh produce and daily essentials.</p>
-    </section>
-    
-    <section id="contact" class="contact-section">
-        <h2>Contact Us</h2>
-        <p>Email: support@supermarket.com | Phone: 123-456-7890</p>
     </section>
     
     <footer>
@@ -110,8 +115,10 @@
     </footer>
     
     <script>
-        document.querySelector('.shop-now').addEventListener('click', function() {
-            alert('Redirecting to products section!');
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Item added to cart!');
+            });
         });
     </script>
 </body>
