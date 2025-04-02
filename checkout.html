@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermarket Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: blanchedalmond;
+        }
+        nav {
+            background-color: darkgreen;
+            padding: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        #searchBar {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        .product-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .product-item {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            display: none;
+            cursor: pointer;
+        }
+        .product-item:hover {
+            background-color: lightgray;
+        }
+        #selectedProduct {
+            margin-top: 20px;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: darkgreen;
+            display: none;
+        }
+        #orderConfirmation {
+            margin-top: 20px;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: darkgreen;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="addcart.html">Cart</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h2>Supermarket Product Search</h2>
+    <input type="text" id="searchBar" placeholder="Search for products..." onkeyup="searchProducts()">
+    
+    <ul class="product-list" id="productList">
+        <li class="product-item" >Apples</li>
+        <li class="product-item" onclick="openProductPage('bananas.html')">Bananas</li>
+        <li class="product-item" onclick="openProductPage('carrots.html')">Carrots</li>
+        <li class="product-item" onclick="openProductPage('milk.html')">Milk</li>
+        <li class="product-item" onclick="openProductPage('bread.html')">Bread</li>
+        <li class="product-item" onclick="openProductPage('cheese.html')">Cheese</li>
+        <li class="product-item" onclick="openProductPage('meat.html')">Meat</li>
+        <li class="product-item" onclick="openProductPage('grains.html')">Grains</li>
+        <li class="product-item" onclick="openProductPage('beauty-products.html')">Beauty Products</li>
+        <li class="product-item" onclick="openProductPage('baby-products.html')">Baby Products</li>
+        <li class="product-item" onclick="openProductPage('snacks.html')">Snacks</li>
+    </ul>
+
+    <div id="selectedProduct"></div>
+
+    <div class="checkout-container">
+        <h2>Checkout</h2>
+        <form id="checkout-form" onsubmit="confirmOrder(event)">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" required></textarea>
+            </div>
+            <h3>Payment Method</h3>
+            <div class="form-group">
+                <select id="payment-method">
+                    <option value="card">Credit/Debit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="gpay">Google Pay</option>
+                    <option value="phonepe">PhonePe</option>
+                    <option value="upi">UPI</option>
+                </select>
+            </div>
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+
+    <div id="orderConfirmation">Your order has been placed successfully!</div>
+
+    <script>
+        function searchProducts() {
+            let input = document.getElementById('searchBar').value.toLowerCase();
+            let items = document.querySelectorAll('.product-item');
+            
+            items.forEach(item => {
+                if (item.textContent.toLowerCase().includes(input)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+
+        function openProductPage(productPage) {
+            window.location.href = productPage;
+        }
+
+        function confirmOrder(event) {
+            event.preventDefault();
+            document.getElementById('orderConfirmation').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+

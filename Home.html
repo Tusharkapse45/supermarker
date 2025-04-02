@@ -12,7 +12,7 @@
             background-color: #f5f5f5;
         }
         header {
-            background-color: #27ae60;
+            background-color: #0a0b0a;
             color: white;
             padding: 15px 0;
             text-align: center;
@@ -32,20 +32,23 @@
         .banner {
             text-align: center;
             padding: 50px;
-            background-color: #2ecc71;
+            background-color: #d76a0b;
             color: white;
         }
         .product-list {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-around;
             padding: 20px;
         }
         .product {
             background-color: white;
             padding: 20px;
+            margin: 10px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            width: 200px;
         }
         footer {
             text-align: center;
@@ -58,15 +61,16 @@
 </head>
 <body>
     <header>
-        <nav>
-            <h1>Supermarket</h1>
-            <ul>
+       <nav>
+
+              <ul>
                 <li><a href="Home.html">Home</a></li>
                 <li><a href="product.html">Products</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="addcart.html">Cart</a></li>
-                <li><a href="login.html" class="login-btn">Login</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
             </ul>
         </nav>
     </header>
@@ -74,24 +78,24 @@
     <section id="home" class="banner">
         <h2>Welcome to Our Supermarket</h2>
         <p>Get the best deals on fresh groceries!</p>
-        <a href="#products" class="shop-now">Shop Now</a>
+        <a href="product.html" class="shop-now">Shop Now</a>
     </section>
     
     <section id="products" class="products-section">
         <h2>Our Products</h2>
         <div class="product-list">
-            <div class="product">
-                <p>Fruits & Vegetables</p>
-            </div>
-            <div class="product">
-                <p>Dairy Products</p>
-            </div>
-            <div class="product">
-                <p>Bakery Items</p>
-            </div>
-            <div class="product">
-                <p>Beverages</p>
-            </div>
+            <div class="product"><p>Fruits & Vegetables</p></div>
+            <div class="product"><p>Dairy Products</p></div>
+            <div class="product"><p>Bakery Items</p></div>
+            <div class="product"><p>Beverages</p></div>
+            <div class="product"><p>Meat</p></div>
+            <div class="product"><p>Snacks</p></div>
+            <div class="product"><p>Frozen Foods</p></div>
+            <div class="product"><p>Grains</p></div>
+            <div class="product"><p>Beauty Products</p></div>
+            <div class="product"><p>Household Essentials</p></div>
+            <div class="product"><p>Spices</p></div>
+            <div class="product"><p>Baby Products</p></div>
         </div>
     </section>
     

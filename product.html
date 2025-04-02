@@ -12,7 +12,7 @@
             background-color: #f5f5f5;
         }
         header {
-            background-color: #27ae60;
+            background-color: #e00ea5;
             color: white;
             padding: 15px 0;
             text-align: center;
@@ -51,25 +51,72 @@
             width: 100%;
             border-radius: 10px;
         }
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
         .add-to-cart {
             background-color: #27ae60;
             color: white;
             border: none;
             padding: 10px;
             cursor: pointer;
-            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .buy-now {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
             border-radius: 5px;
         }
         footer {
             text-align: center;
             padding: 10px;
-            background-color: #27ae60;
+            background-color: #f2107a;
             color: white;
             margin-top: 20px;
         }
     </style>
 </head>
 <body>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const addToCartButtons = document.querySelectorAll(".add-to-cart");
+            const buyNowButtons = document.querySelectorAll(".buy-now");
+    
+            addToCartButtons.forEach(button => {
+                button.addEventListener("click", (event) => {
+                    const product = event.target.closest(".product");
+                    const productName = product.querySelector("p").innerText;
+                    const productImage = product.querySelector("img").src;
+    
+                    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                    cart.push({ name: productName, image: productImage });
+                    localStorage.setItem("cart", JSON.stringify(cart));
+    
+                    window.location.href = "addcart.html"; // Redirect to the cart page
+                });
+            });
+    
+            buyNowButtons.forEach(button => {
+                button.addEventListener("click", (event) => {
+                    const product = event.target.closest(".product");
+                    const productName = product.querySelector("p").innerText;
+                    const productImage = product.querySelector("img").src;
+    
+                    let cart = [{ name: productName, image: productImage }]; // Direct purchase
+                    localStorage.setItem("cart", JSON.stringify(cart));
+    
+                    window.location.href = "checkout.html"; // Redirect to checkout
+                });
+            });
+        });
+    </script>
+    
     <header>
         <nav>
             <h1>Supermarket</h1>
@@ -77,9 +124,10 @@
                 <li><a href="Home.html">Home</a></li>
                 <li><a href="product.html">Products</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="login.html">login</a></li>
+                <li><a href="login.html">Login</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="addcart.html">Cart</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
             </ul>
         </nav>
     </header>
@@ -90,36 +138,94 @@
             <div class="product">
                 <img src="fruit.jpg" alt="Fruits & Vegetables">
                 <p>Fruits & Vegetables</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <div class="button-group">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
             </div>
             <div class="product">
                 <img src="dairy product.jpg" alt="Dairy Products">
                 <p>Dairy Products</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <div class="button-group">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
             </div>
             <div class="product">
-                <img src="bakery product.jpg" alt="Bakery Items">
-                <p>Bakery Items</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <img src="bakery product.jpg" alt="Bakery Products">
+                <p>Bakery Products</p>
+                <div class="button-group">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
             </div>
             <div class="product">
-                <img src="bavarage.webp" alt="Beverages">
-                <p>Beverages</p>
-                <button class="add-to-cart">Add to cart</button>
+                <img src="bavarage.webp" alt="Beverage Products">
+                <p>Beverage Products</p>
+                <div class="button-group">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="meat.jpg" alt="Meat">
+                <p>Meat</p>
+                <div class="button-group">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="snacks.jpg" alt="Snacks">
+                <p>Snacks</p>
+                <div class="button-group">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="spices.webp" alt="Spices">
+                <p>Spices</p>
+                <div class="button-group">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="grain.jpg" alt="Grains">
+                <p>Grains</p>
+                <div class="button-group">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="household.jpg" alt="Household">
+                <p>Household</p>
+                <div class="button-group">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="beauty.jpg" alt="Beauty Products">
+                <p>Beauty Products</p>
+                <div class="button-group">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="baby.webp" alt="Baby Products">
+                <p>Baby Products</p>
+                <div class="button-group">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
             </div>
         </div>
     </section>
     
-    <footer>
-        <p>&copy; 2025 Supermarket. All rights reserved.</p>
-    </footer>
     
-    <script>
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', () => {
-                alert('Item added to cart!');
-            });
-        });
-    </script>
 </body>
 </html>
